@@ -22,10 +22,10 @@ class ScheduledLRDecay:
     def export(self, file_obj):
         """ exports learning rate decay policy """
         file_obj.write(f'{NL}')
-        file_obj.write(f'{self.__HEADER__}{NL}')
-        file_obj.write(f'policy={self.policy}{NL}')
-        file_obj.write(f'steps={list_to_str(self.lr_decay_schedule.keys())}{NL}')
-        file_obj.write(f'scales={list_to_str(self.lr_decay_schedule.values())}{NL}')
+        file_obj.write(f'{self.__HEADER__}\n')
+        file_obj.write(f'policy={self.policy}\n')
+        file_obj.write(f'steps={list_to_str(self.lr_decay_schedule.keys())}\n')
+        file_obj.write(f'scales={list_to_str(self.lr_decay_schedule.values())}\n')
 
 """Network Optimization """
 class YOLOOptimizer:
@@ -46,16 +46,16 @@ class YOLOOptimizer:
    
     def export(self, file_obj):
         """exports the optimizer to the given file object"""
-        file_obj.write(f'{NL}')
-        file_obj.write(f'{self.__HEADER__}{NL}')
-        file_obj.write(f'batch={self.batch}{NL}')
-        file_obj.write(f'subdivisions={self.subdivisions}{NL}')
-        file_obj.write(f'decay={self.lr_decay}{NL}')
-        file_obj.write(f'learning_rate={self.learning_rate}{NL}')
-        file_obj.write(f'momentum={self.momentum}{NL}')
-        file_obj.write(f'burn_in={self.burn_in}{NL}')
-        file_obj.write(f'max_batches={self.max_batches}{NL}')
-        file_obj.write(f'policy={self.policy}{NL}')
-        file_obj.write(f'steps={list_to_str(self.lr_decay_schedule.keys())}{NL}')
-        file_obj.write(f'scales={list_to_str(self.lr_decay_schedule.values())}{NL}')
+        file_obj.write(f'\n')
+        file_obj.write(f'{self.__HEADER__}\n')
+        file_obj.write(f'batch={self.batch}\n')
+        file_obj.write(f'subdivisions={self.subdivisions}\n')
+        file_obj.write(f'decay={self.lr_decay}\n')
+        file_obj.write(f'learning_rate={self.learning_rate}\n')
+        file_obj.write(f'momentum={self.momentum}\n')
+        file_obj.write(f'burn_in={self.burn_in}\n')
+        file_obj.write(f'max_batches={self.max_batches}\n')
+        file_obj.write(f'policy={self.policy}\n')
+        file_obj.write(f'steps={list_to_str(self.lr_decay_schedule.keys())}\n')
+        file_obj.write(f'scales={list_to_str(self.lr_decay_schedule.values())}\n')
         file_obj.write(NL)

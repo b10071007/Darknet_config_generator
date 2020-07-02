@@ -17,12 +17,12 @@ class RouteConnection(Connection):
         self.layers = layers
     def export(self, file_obj):
         """ exports the route connection to the file object"""
-        file_obj.write(f'{NL}')
-        file_obj.write(f'{self.__HEADER__}{NL}')
+        # file_obj.write(f'\n')
+        file_obj.write(f'{self.__HEADER__}\n')
         if len(self.layers) > 1:
-            file_obj.write(f'layers={list_to_str(self.layers, space=True)}{NL}')
+            file_obj.write(f'layers={list_to_str(self.layers, space=True)}\n')
         else:
-            file_obj.write(f'layers={self.layers[0]}{NL}')
+            file_obj.write(f'layers={self.layers[0]}\n')
         file_obj.write(NL)
         
 class SkipConnection(Connection):
@@ -33,8 +33,8 @@ class SkipConnection(Connection):
         self.activation = activation
     def export(self, file_obj):
         """ exports the skip connection to the file object"""
-        file_obj.write(f'{NL}')
-        file_obj.write(f'{self.__HEADER__}{NL}')
-        file_obj.write(f'from={self.from_layer}{NL}')
-        file_obj.write(f'activation={self.activation}{NL}')
+        # file_obj.write(f'\n')
+        file_obj.write(f'{self.__HEADER__}\n')
+        file_obj.write(f'from={self.from_layer}\n')
+        file_obj.write(f'activation={self.activation}\n')
         file_obj.write(NL) 
