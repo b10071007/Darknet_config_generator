@@ -5,8 +5,6 @@ Layer Descriptors
 """
 from darknet_config_generator.common import NL, Activations
 
-YOLO_ANCHORS = [12, 16, 19, 36, 40, 28, 36, 75, 76, 55, 72, 146, 142, 110, 192, 243, 459, 401]
-
 """ Layers """
 class Layer:
     """ Layer"""
@@ -29,15 +27,15 @@ class ConvolutionLayer(Layer):
         
     def export(self, file_obj):
         """ writes to layer to file object"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
         if self.batch_normalize:
-            file_obj.write(f'batch_normalize={int(self.batch_normalize)}\n')
-        file_obj.write(f'size={self.size}\n')
-        file_obj.write(f'stride={self.stride}\n')
-        file_obj.write(f'pad={self.pad}\n')
-        file_obj.write(f'filters={self.filters}\n')
-        file_obj.write(f'activation={self.activation}\n')
+            file_obj.write(f'batch_normalize={int(self.batch_normalize)}{NL}')
+        file_obj.write(f'size={self.size}{NL}')
+        file_obj.write(f'stride={self.stride}{NL}')
+        file_obj.write(f'pad={self.pad}{NL}')
+        file_obj.write(f'filters={self.filters}{NL}')
+        file_obj.write(f'activation={self.activation}{NL}')
         file_obj.write(NL)
 
 
@@ -52,9 +50,9 @@ class SoftmaxLayer(Layer):
 
     def export(self, file_obj):
         """exports to fileobject"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'groups={self.groups}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'groups={self.groups}{NL}')
         file_obj.write(NL)
 
 
@@ -70,11 +68,11 @@ class MaxPoolingLayer(Layer):
 
     def export(self, file_obj):
         """exports maxpooling layer to file"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'size={self.size}\n')
-        file_obj.write(f'stride={self.stride}\n')
-        file_obj.write(f'padding={self.padding}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'size={self.size}{NL}')
+        file_obj.write(f'stride={self.stride}{NL}')
+        file_obj.write(f'padding={self.padding}{NL}')
         file_obj.write(NL)
 
 class FullyConnectedLayer(Layer):
@@ -88,10 +86,10 @@ class FullyConnectedLayer(Layer):
     
     def export(self, file_obj):
         """exports to fileobject"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'output={self.size}\n')
-        file_obj.write(f'activation={self.activation}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'output={self.size}{NL}')
+        file_obj.write(f'activation={self.activation}{NL}')
         file_obj.write(NL)
 
 class DropOutLayer(Layer):
@@ -105,9 +103,9 @@ class DropOutLayer(Layer):
 
     def export(self, file_obj):
         """exports dropout layer to the config file"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'probability={self.dropout_prob}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'probability={self.dropout_prob}{NL}')
         file_obj.write(NL)
 
 class YOLOLayer(Layer):
@@ -130,16 +128,16 @@ class YOLOLayer(Layer):
         
     def export(self, file_obj):
         """exports the layer to the given file object"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'mask={list_to_str(self.masks, space=False)}\n')
-        file_obj.write(f'anchors={anchors_to_str(self.anchors)}\n')
-        file_obj.write(f'classes={self.classes}\n')
-        file_obj.write(f'num={self.num_anchors}\n')
-        file_obj.write(f'jitter={self.jitter}\n')
-        file_obj.write(f'ignore_thresh={self.ignore_thresh}\n')
-        file_obj.write(f'truth_thresh={self.truth_thresh}\n')
-        file_obj.write(f'random={self.random}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'mask={list_to_str(self.masks, space=False)}{NL}')
+        file_obj.write(f'anchors={anchors_to_str(self.anchors)}{NL}')
+        file_obj.write(f'classes={self.classes}{NL}')
+        file_obj.write(f'num={self.num_anchors}{NL}')
+        file_obj.write(f'jitter={self.jitter}{NL}')
+        file_obj.write(f'ignore_thresh={self.ignore_thresh}{NL}')
+        file_obj.write(f'truth_thresh={self.truth_thresh}{NL}')
+        file_obj.write(f'random={self.random}{NL}')
         
 class UpsampleLayer(Layer):
     """ Upsampling Layer"""
@@ -149,8 +147,8 @@ class UpsampleLayer(Layer):
         
     def export(self, file_obj):
         """exports the layer to the given file object"""
-        # file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'stride={self.stride}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'stride={self.stride}{NL}')
         file_obj.write(NL)
 

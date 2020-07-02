@@ -27,11 +27,11 @@ class YOLONetwork:
     def export(self, file_obj):
         """exports the given layer"""
         file_obj.write(f'{self.__HEADER__}{NL}')
-        file_obj.write(f'# Network Dimensions\n')
-        file_obj.write(f'width={self.input_dim[0]}\n')
-        file_obj.write(f'height={self.input_dim[1]}\n')
-        file_obj.write(f'channels={self.input_dim[2]}\n')
-        # file_obj.write(NL)
+        file_obj.write(f'# Network Dimensions{NL}')
+        file_obj.write(f'width={self.input_dim[0]}{NL}')
+        file_obj.write(f'height={self.input_dim[1]}{NL}')
+        file_obj.write(f'channels={self.input_dim[2]}{NL}')
+        file_obj.write(NL)
         
     def generate_config(self, save_to='net.cfg'):
         """ generates network configuration"""

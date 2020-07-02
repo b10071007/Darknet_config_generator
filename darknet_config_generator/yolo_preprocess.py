@@ -18,10 +18,10 @@ class YOLOImageAugmentation:
         self.angle = angle
     def export(self, file_obj):
         """exports image augementation parameters to the file object"""
-        file_obj.write(f'\n')
-        file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'hue={self.hue}\n')
-        file_obj.write(f'saturation={self.saturation}\n')
-        file_obj.write(f'exposure={self.exposure}\n')
-        file_obj.write(f'angle={self.angle}\n')
+        file_obj.write(f'{NL}')
+        file_obj.write(f'{self.__HEADER__}{NL}')
+        file_obj.write(f'hue={self.hue}{NL}')
+        file_obj.write(f'saturation={self.saturation}{NL}')
+        file_obj.write(f'exposure={self.exposure}{NL}')
+        file_obj.write(f'angle={self.angle}{NL}')
         file_obj.write(NL)
