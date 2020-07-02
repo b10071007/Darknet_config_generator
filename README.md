@@ -1,5 +1,5 @@
 # Darknet Neural Network Configuration Generator
-Abdullahi Adamu
+Forked from Abdullahi Adamu
 
 
 ## Why darknet-config-generator ?
