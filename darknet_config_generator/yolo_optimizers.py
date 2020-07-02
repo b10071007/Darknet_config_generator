@@ -31,13 +31,13 @@ class ScheduledLRDecay:
 class YOLOOptimizer:
     def __init__(self, learning_rate:float=0.001, batch_size=64, subdivisions=64, num_gpus:int=2,
                      policy=LearningRateDecayPolicy.SCHEDULED, momentum=0.9, lr_decay=0.0005,
-                     lr_decay_schedule={400000:0.1, 450000:0.1}, burn_in:int=1000, batches_per_class=2000, num_classes=80):
+                     lr_decay_schedule={400000:0.1, 450000:0.1}, burn_in:int=1000, max_batches=500500):
         self.__HEADER__= '# Optimization Parameters'
         self.batch = batch_size
         self.subdivisions = subdivisions
         self.num_gpus = num_gpus
         self.burn_in = burn_in * self.num_gpus
-        self.max_batches = batches_per_class * num_classes
+        self.max_batches = max_batches
         self.policy = policy
         self.learning_rate = learning_rate
         self.lr_decay = lr_decay
