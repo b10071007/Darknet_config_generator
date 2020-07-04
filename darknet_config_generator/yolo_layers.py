@@ -7,6 +7,15 @@ from darknet_config_generator.common import NL, Activations
 
 YOLO_ANCHORS = [12, 16, 19, 36, 40, 28, 36, 75, 76, 55, 72, 146, 142, 110, 192, 243, 459, 401]
 
+def list_to_str(input_list, sep=","):
+    list_str = ""
+    for elem in input_list:
+        list_str += str(elem)
+        list_str += sep
+    list_str = list_str[:-1]
+    return list_str
+
+
 """ Layers """
 class Layer:
     """ Layer"""
@@ -132,8 +141,8 @@ class YOLOLayer(Layer):
         """exports the layer to the given file object"""
         # file_obj.write(f'\n')
         file_obj.write(f'{self.__HEADER__}\n')
-        file_obj.write(f'mask={list_to_str(self.masks, space=False)}\n')
-        file_obj.write(f'anchors={anchors_to_str(self.anchors)}\n')
+        file_obj.write(f'mask={list_to_str(self.masks)}\n')
+        file_obj.write(f'anchors={list_to_str(self.anchors)}\n')
         file_obj.write(f'classes={self.classes}\n')
         file_obj.write(f'num={self.num_anchors}\n')
         file_obj.write(f'jitter={self.jitter}\n')
