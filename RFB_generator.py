@@ -174,11 +174,11 @@ def Generate_RFB_vgg_512(num_classes, augmentation, optimizer, save_dir):
 
     # Head
     print("\n[Head]")
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-1]) + 1), filters=256, yolo_mask=[0,1,2], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-2]) + 1), filters=256, yolo_mask=[3,4,5], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-1]) + 1), filters=256, yolo_mask=[12,13,14], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-2]) + 1), filters=256, yolo_mask=[9,10,11], num_classes=num_classes) )
     net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-3]) + 1), filters=512, yolo_mask=[6,7,8], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-4]) + 1), filters=1024, yolo_mask=[9,10,11], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-5]) + 1), filters=512, yolo_mask=[12,13,14], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-4]) + 1), filters=1024, yolo_mask=[3,4,5], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-5]) + 1), filters=512, yolo_mask=[0,1,2], num_classes=num_classes) )
 
     net.generate_config("RFB_vgg_512.cfg")
 
@@ -205,10 +205,10 @@ def Generate_RFB_vgg_300(num_classes, augmentation, optimizer, save_dir):
 
     # Head
     print("\n[Head]")
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-1]) + 1), filters=256, yolo_mask=[0,1,2], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-2]) + 1), filters=512, yolo_mask=[3,4,5], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-3]) + 1), filters=1024, yolo_mask=[6,7,8], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-4]) + 1), filters=512, yolo_mask=[9,10,11], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-1]) + 1), filters=256, yolo_mask=[9,10,11], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-2]) + 1), filters=512, yolo_mask=[6,7,8], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-3]) + 1), filters=1024, yolo_mask=[3,4,5], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-4]) + 1), filters=512, yolo_mask=[0,1,2], num_classes=num_classes) )
 
     net.generate_config("RFB_vgg_300.cfg")
 
@@ -234,10 +234,10 @@ def Generate_RFB_vgg_512_r1(num_classes, augmentation, optimizer, save_dir):
 
     # Head
     print("\n[Head]")
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-1]) + 1), filters=256, yolo_mask=[0,1,2], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-2]) + 1), filters=512, yolo_mask=[3,4,5], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-3]) + 1), filters=1024, yolo_mask=[6,7,8], num_classes=num_classes) )
-    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-4]) + 1), filters=1024, yolo_mask=[9,10,11], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-1]) + 1), filters=256, yolo_mask=[9,10,11], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-2]) + 1), filters=512, yolo_mask=[6,7,8], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-3]) + 1), filters=1024, yolo_mask=[3,4,5], num_classes=num_classes) )
+    net.add_layer( _get_head(from_layer=-(net.num_layers - int(net.head_idx[-4]) + 1), filters=1024, yolo_mask=[0,1,2], num_classes=num_classes) )
 
     net.generate_config("RFB_vgg_512_r1.cfg")
 
